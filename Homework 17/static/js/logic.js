@@ -26,37 +26,22 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
   }
 
   function getColor(magnitude) {
-    switch (true) {
-    case magnitude > 5:
-      return "#FF5733";
-    case magnitude > 4:
-      return "#FFD433";
-    case magnitude > 3:
-      return "#C7FF33";
-    case magnitude > 2:
-      return "#4CFF33";
-    case magnitude > 1:
-      return "#33FFB8";
-    default:
-      return "#33D7FF ";
+    switch (true) { 
+    case magnitude > 1: return "#33FFB8";
+    case magnitude > 2: return "#4CFF33";
+    case magnitude > 3: return "#C7FF33";
+    case magnitude > 4: return "#FFD433";
+    case magnitude > 5: return "#FF5733";
+    default: return "#33D7FF ";
     }
   }
 
   var legend = L.control({
     position: "bottomleft"
   });
+  //still missing legend display
 
-  legend.onAdd = function() {
-    var div = L.DomUtil.create("div", "info legend");
-
-    var colors = ["#33D7FF","#33FFB8","#4CFF33","#C7FF33","#FFD433","#FF5733"];
-    var level = [0, 1, 2, 3, 4, 5];
-    
-    for (var ii = 0; ii < level.length; ii++) {
-      div.innerHTML +=
-        "<i style='background: " + colors[i] + "'></i> " + level[ii] + (level[ii + 1] ? "&ndash;" + grades[ii + 1] + "<br>" : "+");}
-    return div;
-  };
+ 
 
   legend.addTo(map);
 
